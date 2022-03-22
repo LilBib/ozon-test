@@ -35,7 +35,7 @@ class Progress {
             this._bar.style.visibility='visible';
         }
         if(this._valueInput.value>100) {
-            this._valueInput.value=0
+            this._valueInput.value=100
         }
         if(this._valueInput.value<0) {
             this._valueInput.value=0;
