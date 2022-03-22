@@ -1,0 +1,18 @@
+.progress{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+@media all and (orientation:portrait) {
+    .progress {
+      width: 320px;
+      height: 568px;
+      flex-direction: column;
+    }
+}
+@media all and (orientation:landscape) {
+    .progress {
+        width: 568px;
+        height: 320px; 
+      }
+}

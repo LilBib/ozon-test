@@ -1,0 +1,6 @@
+.tools {
+    display: flex;
+    flex-direction: column;
+    height: 160px;
+    justify-content: space-evenly;
+}

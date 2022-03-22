@@ -1,0 +1,21 @@
+.checkbox-input {
+    cursor: pointer;
+    position: relative;
+    background-color: #e0e6ef;
+    border-radius: 15px;
+    width: 46px;
+    height: 28px;
+    margin-right: 20px;
+}
+
+.checkbox-input::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: white;
+    top: 2px;
+    left: 2px;
+    visibility: visible;
+}
