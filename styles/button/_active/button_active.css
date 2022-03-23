@@ -6,7 +6,7 @@
     width: 46px;
     height: 28px;
     margin-right: 20px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 .button_active::after {
     content: '';
@@ -18,5 +18,5 @@
     top: 2px;
     left: 20px;
     visibility: visible;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }

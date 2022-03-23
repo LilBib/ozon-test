@@ -6,7 +6,7 @@
     width: 46px;
     height: 28px;
     margin-right: 20px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 .button::after {
@@ -19,5 +19,5 @@
     top: 2px;
     left: 2px;
     visibility: visible;
-    transition: left 0.5s ease-in-out;
+    transition: left 0.2s ease-in-out;
 }
