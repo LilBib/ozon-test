@@ -58,7 +58,7 @@ class Progress {
     _stopHiding () {
         this._hideBttn.classList.remove("button_active");
         this._hideBttn.classList.add("button");
-        this._bar.style.visibility='visible';
+        this._bar.style.opacity='1';
     }
 
     _stopAnimating () {
@@ -92,7 +92,7 @@ class Progress {
             if (this._animateBttn.classList.contains("button_active")) {
                 this._stopAnimating();
             }
-            this._bar.style.visibility='hidden';
+            this._bar.style.opacity='0';
             this._hideBttn.classList.add("button_active");
             this._hideBttn.classList.remove("button");
         }
