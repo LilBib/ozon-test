@@ -2,7 +2,7 @@
     font-size: small;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
-    position: fixed;
+    position: absolute;
     left: 10px;
     top: 10px;
 }
