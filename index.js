@@ -7,10 +7,13 @@ class Progress {
         this._valueInput = document.querySelector(valueSelector);
         this._animateBttn = document.querySelector(animationSelector);
         this._hideBttn=document.querySelector(hideSelector);
+
         this._animateBttnHandlerBinded=this._animateBttnHandler.bind(this);
         this._inputValueHandlerBinded = this._inputValueHandler.bind(this);
         this._hideBttnHandlerBinded = this._hideBttnHandler.bind(this);
         this._changeInputValueBinded = this._changeInputValue.bind(this);
+
+        this.setEventListeners();
     }
 
     setEventListeners () {
@@ -19,7 +22,7 @@ class Progress {
         this._hideBttn.addEventListener('click', this._hideBttnHandlerBinded)
     }
 
-    _setProgress(percent) {
+    _setProgress (percent) {
         const offset = this._circleLength - percent / 100 * this._circleLength;
         this._circle.style.strokeDasharray = `${this._circleLength} ${this._circleLength}`
         this._circle.style.strokeDashoffset = offset;
@@ -96,5 +99,4 @@ class Progress {
     }
 }
 
-const progress = new Progress('.progress-bar','.progress-bar__circle', '.input__value', '.button_animate', '.button_hide');
-progress.setEventListeners();
+const progress = new Progress('.progress-bar', '.progress-bar__circle', '.input__value', '.button_animate', '.button_hide');
