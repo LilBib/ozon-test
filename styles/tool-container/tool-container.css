@@ -3,6 +3,3 @@
     display: flex;
     align-items: center;
 }
-.tool-container:last-child {
-    margin-bottom: 0;
-}

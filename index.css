@@ -3,7 +3,9 @@
 @import url(./styles/progress-bar/__circle/progress-bar__circle.css);
 @import url(./styles/progress-bar/__background/progress-bar__background.css);
 @import url(./styles/input/__value/input__value.css);
-@import url(./styles/checkbox-input/checkbox-input.css);
-@import url(./styles/checkbox-input/_active/checkbox-input_active.css);
+@import url(./styles/button/button.css);
+@import url(./styles/button/_active/button_active.css);
 @import url(./styles/tool-container/tool-container.css);
 @import url(./styles/tools/tools.css);
+@import url(./styles/section-title/section-title.css);
+@import url(./styles/label/label.css);

@@ -10,6 +10,7 @@ class Progress {
         this._animateBttnHandlerBinded=this._animateBttnHandler.bind(this);
         this._inputValueHandlerBinded = this._inputValueHandler.bind(this);
         this._hideBttnHandlerBinded = this._hideBttnHandler.bind(this);
+        this._changeInputValueBinded = this._changeInputValue.bind(this);
     }
 
     setEventListeners () {
@@ -25,14 +26,12 @@ class Progress {
     }
 
     _inputValueHandler () {
-        if (this._animateBttn.classList.contains("checkbox-input_active")) {
-            this._animateBttn.classList.add("checkbox-input");
-            this._animateBttn.classList.remove("checkbox-input_active");
+        this._circle.style.transition='all 0.2s ease-out';
+        if (this._animateBttn.classList.contains("button_active")) {
+            this._stopAnimating();
         }
-        if (this._hideBttn.classList.contains("checkbox-input_active")) {
-            this._hideBttn.classList.remove("checkbox-input_active");
-            this._hideBttn.classList.add("checkbox-input");
-            this._bar.style.visibility='visible';
+        if (this._hideBttn.classList.contains("button_active")) {
+            this._stopHiding();
         }
         if(this._valueInput.value>100) {
             this._valueInput.value=100
@@ -43,49 +42,56 @@ class Progress {
         this._setProgress(this._valueInput.value)
     }
     
-    _animateBttnHandler () {
-        const changeInputValue = ()=> {
-            if(this._valueInput.value==100) {
-                this._valueInput.value='0'
-            }
-            else {
-                this._valueInput.value=`${Number(this._valueInput.value)+1}`
-                this._setProgress(this._valueInput.value)
-            }
-        }
-        if (this._animateBttn.classList.contains("checkbox-input_active")) {
-            this._animateBttn.classList.add("checkbox-input");
-            this._animateBttn.classList.remove("checkbox-input_active");
-            clearInterval(this._interval);
+    _changeInputValue () {
+        if(this._valueInput.value==100) {
+            this._valueInput.value='0'
         }
         else {
-            if (this._hideBttn.classList.contains("checkbox-input_active")) {
-                this._hideBttn.classList.remove("checkbox-input_active");
-                this._hideBttn.classList.add("checkbox-input");
+            this._valueInput.value=`${Number(this._valueInput.value)+1}`
+            this._setProgress(this._valueInput.value)
+        }
+    }
+
+    _stopHiding () {
+        this._hideBttn.classList.remove("button_active");
+        this._hideBttn.classList.add("button");
+        this._bar.style.visibility='visible';
+    }
+
+    _stopAnimating () {
+        this._animateBttn.classList.add("button");
+        this._animateBttn.classList.remove("button_active");
+        clearInterval(this._interval);
+    }
+
+    _animateBttnHandler () {
+        this._circle.style.transition='';
+        if (this._animateBttn.classList.contains("button_active")) {
+            this._stopAnimating();
+        }
+        else {
+            if (this._hideBttn.classList.contains("button_active")) {
+                this._stopHiding();
             }
-            this._animateBttn.classList.remove("checkbox-input");
-            this._animateBttn.classList.add("checkbox-input_active");
-            this._interval=setInterval(changeInputValue,10);
+            this._animateBttn.classList.remove("button");
+            this._animateBttn.classList.add("button_active");
+            this._interval=setInterval(this._changeInputValueBinded,10);
             
         }
     }
     
     _hideBttnHandler () {
-        if (this._hideBttn.classList.contains("checkbox-input_active")) {
-            this._hideBttn.classList.remove("checkbox-input_active");
-            this._hideBttn.classList.add("checkbox-input");
-            this._bar.style.visibility='visible';
+        this._circle.style.transition='';
+        if (this._hideBttn.classList.contains("button_active")) {
+            this._stopHiding();
         }
         else {
-            if (this._animateBttn.classList.contains("checkbox-input_active")) {
-                this._setProgress(0);
-                this._valueInput.value=''; 
-                this._animateBttn.classList.add("checkbox-input");
-                this._animateBttn.classList.remove("checkbox-input_active");
+            if (this._animateBttn.classList.contains("button_active")) {
+                this._stopAnimating();
             }
             this._bar.style.visibility='hidden';
-            this._hideBttn.classList.add("checkbox-input_active");
-            this._hideBttn.classList.remove("checkbox-input");
+            this._hideBttn.classList.add("button_active");
+            this._hideBttn.classList.remove("button");
         }
     }
 }

@@ -1,0 +1,8 @@
+.section-title {
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+}

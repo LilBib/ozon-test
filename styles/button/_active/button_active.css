@@ -1,14 +1,14 @@
-.checkbox-input {
+.button_active {
+    background-color: dodgerblue;
     cursor: pointer;
     position: relative;
-    background-color: #e0e6ef;
     border-radius: 15px;
     width: 46px;
     height: 28px;
     margin-right: 20px;
+    transition: all 0.5s ease-in-out;
 }
-
-.checkbox-input::after {
+.button_active::after {
     content: '';
     position: absolute;
     width: 24px;
@@ -16,6 +16,7 @@
     border-radius: 50%;
     background-color: white;
     top: 2px;
-    left: 2px;
+    left: 20px;
     visibility: visible;
+    transition: all 0.5s ease-in-out;
 }
